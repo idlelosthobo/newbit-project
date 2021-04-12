@@ -4,9 +4,9 @@ After=network.target
 
 [Service]
 User=root
-WorkingDirectory=/root/newbit/app
+WorkingDirectory=/usr/local/newbit/
 LimitNOFILE=4096
-ExecStart=/usr/local/newbit/ run uvicorn main:app --error-logfile /var/log/newbit_error_log.txt
+ExecStart=/usr/local/bin/ run uvicorn main:app --error-logfile /var/log/newbit_error_log.txt
 Restart=on-failure
 RestartSec=5s
 
