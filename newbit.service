@@ -1,0 +1,14 @@
+[Unit]
+Description=Newbit
+After=network.target
+
+[Service]
+User=root
+WorkingDirectory=/root/newbit/app
+LimitNOFILE=4096
+ExecStart=/usr/local/newbit/ run uvicorn main:app --error-logfile /var/log/newbit_error_log.txt
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
