@@ -6,7 +6,7 @@ After=network.target
 User=root
 WorkingDirectory=/usr/local/newbit/
 LimitNOFILE=4096
-ExecStart=/usr/local/bin/uvicorn main:app --host 0.0.0.0
+ExecStart=/usr/bin/python3 bot
 Restart=on-failure
 RestartSec=5s
 

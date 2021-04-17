@@ -1,0 +1,14 @@
+[Unit]
+Description=Newbit
+After=network.target
+
+[Service]
+User=root
+WorkingDirectory=/usr/local/newbit/
+LimitNOFILE=4096
+ExecStart=/usr/local/bin/uvicorn api:app --host 0.0.0.0
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
