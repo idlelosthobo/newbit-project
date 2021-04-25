@@ -1,15 +1,18 @@
+from newbit.core import Core
 from typing import Optional
-
 from fastapi import FastAPI
 
+
 app = FastAPI()
+newbit = Core()
 
 
-@app.get("/test/")
+@app.get('/list/')
 async def read_root():
-    return {"Hello": "World OVE TACO!"}
+    return newbit.news_request_list
 
 
-@app.get("/items/{item_id}")
-async def read_item(item_id: int, q: Optional[str] = None):
-    return {"item_id": item_id, "q": q}
+@app.get('/add/{topic}')
+async def read_item(topic: Optional[str] = None):
+    newbit.add_news_request(topic)
+    return {'status': 'success'}
