@@ -1,5 +1,5 @@
 [Unit]
-Description=Newbit
+Description=NewbitAPI
 After=network.target
 
 [Service]

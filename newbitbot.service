@@ -1,12 +1,12 @@
 [Unit]
-Description=Newbit
+Description=NewbitBOT
 After=network.target
 
 [Service]
 User=root
 WorkingDirectory=/usr/local/newbit/
 LimitNOFILE=4096
-ExecStart=/usr/bin/python3 bot
+ExecStart=/usr/bin/python3 bot.py
 Restart=on-failure
 RestartSec=5s
 
