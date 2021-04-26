@@ -15,7 +15,7 @@ class Core:
     def set_db_engine(self, db_engine_choice):
         if db_engine_choice == 'sqlite':
             self.db_engine_type = db_engine_choice
-            self.db_engine = create_engine('sqlite:///newbit.db', echo=True)
+            self.db_engine = create_engine('sqlite:///newbit.db', echo=False)
 
     def build_db(self):
         models.Base.metadata.create_all(self.db_engine, checkfirst=True)
