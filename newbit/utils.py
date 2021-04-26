@@ -9,7 +9,7 @@ def get_news(topic: str):
 
     querystring = {
         "begin_date": "20200101",
-        "end_date": "20200131",
+        "end_date": "20300131",
         "q": topic,
         'page': 0,
         "api-key": nyt_api_key,
@@ -21,7 +21,6 @@ def get_news(topic: str):
 
     for article in json['response']['docs']:
         headlines += article['headline']['main']
-
-    print(headlines)
+        headlines += '|'
 
     return headlines

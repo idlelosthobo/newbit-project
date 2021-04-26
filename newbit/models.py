@@ -1,4 +1,4 @@
-from sqlalchemy import Column, String, Text, Integer, Boolean, ForeignKey
+from sqlalchemy import Column, String, Text, Integer, Boolean, ForeignKey, JSON
 from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
 
@@ -25,4 +25,4 @@ class NewsInformation(Base):
     id = Column(Integer, primary_key=True)
     news_request_id = Column(Integer, ForeignKey('news_request.id'))
 
-    headlines = Column(Text)
+    headlines = Column(String)

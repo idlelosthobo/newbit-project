@@ -25,6 +25,12 @@ class Core:
         self.db_session.add(news_request)
         self.db_session.commit()
 
+    def add_news_information(self, news_request, headlines):
+        news_request.is_processed = True
+        news_request.information = [models.NewsInformation(headlines=headlines)]
+        self.db_session.add(news_request)
+        self.db_session.commit()
+
     @property
     def next_news_request(self):
         return self.db_session.query(models.NewsRequest).filter_by(is_processed=False).first()
@@ -33,3 +39,5 @@ class Core:
     def news_request_list(self):
         return self.db_session.query(models.NewsRequest).all()
 
+    def get_news_information(self, news_request_id):
+        return self.db_session.query(models.NewsInformation).filter_by(news_request_id=news_request_id).first()
